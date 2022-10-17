@@ -84,7 +84,9 @@
 需要注意的是，`lombok` 也使用了`java apt` 技术，因此在同时使用两个工具时，需要在`maven` 或者`gradle` 里进行配置，否则会出现`mapstruct` 找不到`lombok` 生成的getter、setter方法的情况。
 这一配置体现在上面的pom文件的`<annotationProcessorPaths>` 项中。
 相关链接：
+
 <https://github.com/mapstruct/mapstruct-examples/blob/main/mapstruct-lombok/pom.xml>
+
 <https://mapstruct.org/faq/>
 
 ## mapstruct的使用
@@ -163,13 +165,13 @@ public class BasicMain {
 运行结果为：
 
 ```text
-UserDo(super=test`mapstruct`.demo3.UserDo@15db9742, userId=1111, userName=test)
-UserPo(super=test`mapstruct`.demo3.UserPo@3d4eac69, userId=1111, userName=test)
-UserDo(super=test`mapstruct`.demo3.UserDo@42a57993, userId=1111, userName=test)
+UserDo(super=testmapstruct.demo3.UserDo@15db9742, userId=1111, userName=test)
+UserPo(super=testmapstruct.demo3.UserPo@3d4eac69, userId=1111, userName=test)
+UserDo(super=testmapstruct.demo3.UserDo@42a57993, userId=1111, userName=test)
 ```
 
 **快速理解**
-可以看到，我们在converter接口上使用了`@Mapper` 注解，将其声明为一个`mapstruct` 转换器。
+可以看到，我们在converter接口上使用了`@Mapper`注解，将其声明为一个`mapstruct`转换器。
 
 然后在其中声明了两个接口方法：`UserDo po2do(UserPo po);` 和 `UserPo do2po(UserDo ddo);` ，这两个方法会被`mapstruct` 实现为对应的转换方法，实现方法会生成在项目的`sources/generated-classes/annotations` 目录下。声明方法时名称可以自定，只要保证入参和出参分别是目标的转换类即可。
 
@@ -292,9 +294,9 @@ public class BasicMain {
 输出
 
 ```text
-UserDo(super=test`mapstruct`.demo3.UserDo@15db9742, userId=1111, userName=test, number=1111)
-UserPo(super=test`mapstruct`.demo3.UserPo@3d4eac69, id=1111, name=test, number=1111 test)
-UserDo(super=test`mapstruct`.demo3.UserDo@42a57993, userId=1111, userName=test, number=1111)
+UserDo(super=testmapstruct.demo3.UserDo@15db9742, userId=1111, userName=test, number=1111)
+UserPo(super=testmapstruct.demo3.UserPo@3d4eac69, id=1111, name=test, number=1111 test)
+UserDo(super=testmapstruct.demo3.UserDo@42a57993, userId=1111, userName=test, number=1111)
 ```
 
 可以看到，在转换方法上我们并没有通过`@Mapping` 注解声明字段的转换关系，但字段仍然按照期望的方式完成了转换（转换为字符串时出现了" test"的后缀，且在转换为数字时没有因为后缀而报错）
@@ -425,9 +427,9 @@ public class BasicMain {
 
 ```text
 1664100691389
-UserDo(super=test`mapstruct`.demo3.UserDo@15db9742, userId=1111, userName=test, number=1111, date=Sun Sep 25 18:11:31 CST 2022)
-UserPo(super=test`mapstruct`.demo3.UserPo@232204a1, id=1111, name=test, number=1111 test, timeStamp=1664104291389)
-UserDo(super=test`mapstruct`.demo3.UserDo@4aa298b7, userId=1111, userName=test, number=1111, date=Sun Sep 25 20:11:31 CST 2022)
+UserDo(super=testmapstruct.demo3.UserDo@15db9742, userId=1111, userName=test, number=1111, date=Sun Sep 25 18:11:31 CST 2022)
+UserPo(super=testmapstruct.demo3.UserPo@232204a1, id=1111, name=test, number=1111 test, timeStamp=1664104291389)
+UserDo(super=testmapstruct.demo3.UserDo@4aa298b7, userId=1111, userName=test, number=1111, date=Sun Sep 25 20:11:31 CST 2022)
 ```
 
 #### 指定赋值方法
@@ -573,9 +575,9 @@ public class BasicMain {
 
 ```text
 1664106359883
-UserDo(super=test`mapstruct`.demo3.UserDo@15db9742, userId=1111, userName=test, number=1111, date=Sun Sep 25 19:45:59 CST 2022, preDate=Sun Sep 25 19:45:59 CST 2022)
-UserPo(super=test`mapstruct`.demo3.UserPo@232204a1, id=1111, name=test, number=1111 test, timeStamp=1664109959883, preTimeStamp=1664102759883)
-UserDo(super=test`mapstruct`.demo3.UserDo@4aa298b7, userId=1111, userName=test, number=1111, date=Sun Sep 25 21:45:59 CST 2022, preDate=Sun Sep 25 17:45:59 CST 2022)
+UserDo(super=testmapstruct.demo3.UserDo@15db9742, userId=1111, userName=test, number=1111, date=Sun Sep 25 19:45:59 CST 2022, preDate=Sun Sep 25 19:45:59 CST 2022)
+UserPo(super=testmapstruct.demo3.UserPo@232204a1, id=1111, name=test, number=1111 test, timeStamp=1664109959883, preTimeStamp=1664102759883)
+UserDo(super=testmapstruct.demo3.UserDo@4aa298b7, userId=1111, userName=test, number=1111, date=Sun Sep 25 21:45:59 CST 2022, preDate=Sun Sep 25 17:45:59 CST 2022)
 ```
 
 **注意**
@@ -977,9 +979,9 @@ public class BasicMain {
 控制台输出：
 
 ```text
-UserDo(super=test`mapstruct`.demo3.UserDo@15db9742, userId=1111, userName=test, loverDo=LoverDo(super=test`mapstruct`.demo3.LoverDo@6d06d69c, loverName=kevy, loverAge=26, num=3))
-UserPo(super=test`mapstruct`.demo3.UserPo@42a57993, id=1111, name=test, loverPo=LoverPo(super=test`mapstruct`.demo3.LoverPo@75b84c92, loName=kevy, loAge=26, num=3 test))
-UserDo(super=test`mapstruct`.demo3.UserDo@6bc7c054, userId=1111, userName=test, loverDo=LoverDo(super=test`mapstruct`.demo3.LoverDo@232204a1, loverName=kevy, loverAge=26, num=3))
+UserDo(super=testmapstruct.demo3.UserDo@15db9742, userId=1111, userName=test, loverDo=LoverDo(super=test`mapstruct`.demo3.LoverDo@6d06d69c, loverName=kevy, loverAge=26, num=3))
+UserPo(super=testmapstruct.demo3.UserPo@42a57993, id=1111, name=test, loverPo=LoverPo(super=test`mapstruct`.demo3.LoverPo@75b84c92, loName=kevy, loAge=26, num=3 test))
+UserDo(super=testmapstruct.demo3.UserDo@6bc7c054, userId=1111, userName=test, loverDo=LoverDo(super=test`mapstruct`.demo3.LoverDo@232204a1, loverName=kevy, loverAge=26, num=3))
 ```
 
 想要达成“在一个转换器中使用另一个转换器”的目的，首先需要在定义被使用的转换器时为他的类和转换方法分别使用`@Named` 注解进行命名；然后要在使用转换器的转换器的`@Mapper` 注解上使用`uses` 属性指定用到的外部转换器；最后要在转换方法的`@Mapping` 注解上通过`qualifiedByName` 属性声明使用到的方法。要注意的是，我们要同时声明被使用的类和被使用的方法，并把这两者以列表的方式组合在一起（即：以`{a, b}`的方式组合起来）。
@@ -1146,5 +1148,7 @@ abstract UserDo multi2do(UserPo po, LoverPo loverPo);
 ## 参考文章
 
 <https://www.cnblogs.com/DDgougou/p/12848625.html>
+
 <https://stackabuse.com/guide-to-mapstruct-in-java-advanced-mapping-library/>
+
 <https://mapstruct.org/documentation/stable/reference/html/#adding-custom-methods>
