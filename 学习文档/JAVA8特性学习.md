@@ -77,8 +77,11 @@ Optional对象的创建：`Optional` 类提供类三个方法用于实例化一�
 获取Optional对象的值：
 
 - `get()` 获取Optional内部的值，如果为null则抛出NPE
+
 - `orElse()` 如果有值就返回，否则返回一个给定的值作为默认值；
+
 - `orElseGet()` 与orElse() 方法作用类似，区别在于生成默认值的方式不同。该方法接受一个Supplier<? extends T> 函数式接口参数，用于生成默认值；
+
 - `orElseThrow()` 与前面介绍的get() 方法类似，当值为null时调用这两个方法都会抛出NullPointerException 异常，区别在于该方法可以指定抛出的异常类型。
 
 ---
