@@ -30,7 +30,7 @@
         <maven.compiler.target>8</maven.compiler.target>
         <org.mapstruct.version>1.5.2.Final</org.mapstruct.version>
         <org.projectlombok.version>1.18.24</org.projectlombok.version>
-        <lombok-`mapstruct`-binding.version>0.2.0</lombok-`mapstruct`-binding.version>
+        <lombok-mapstruct-binding.version>0.2.0</lombok-mapstruct-binding.version>
     </properties>
 
     <dependencies>
