@@ -1,3 +1,11 @@
+---
+title: JAVA8特性学习
+layout: default
+categories: Java学习
+tags: [Lambda, Stream, Optional, DateTime]
+date: 2022-01-01
+---
+
 # JAVA8特性学习
 
 > 在网上看到其他人总结的JAVA8特性文档，这里做一个总结学习，用于后面自己回忆。

@@ -1,2 +1,19 @@
-# theme: jekyll-theme-cayman
+# Site settings
+title: 我的技术博客
+description: Java 学习笔记与技术分享
+
+# Theme - 使用 Slate 主题
 theme: jekyll-theme-slate
+
+# Build settings
+markdown: kramdown
+highlighter: rouge
+
+# Permalinks
+permalink: pretty
+
+# Exclude from build
+exclude:
+  - README.md
+  - Gemfile
+  - Gemfile.lock

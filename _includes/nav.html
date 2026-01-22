@@ -1,5 +1,39 @@
-<nav>
-  {% for page in site.pages %}
-    <a href="{{ page.url }}">{{ page.title }}</a></br>
-  {% endfor %}
+<nav class="sidebar-nav">
+  <h3>导航</h3>
+  <ul>
+    <li><a href="{{ '/' | relative_url }}">首页</a></li>
+    <li><a href="{{ '/categories' | relative_url }}">分类</a></li>
+    <li><a href="{{ '/tags' | relative_url }}">标签</a></li>
+  </ul>
+
+  <h3>分类</h3>
+  <ul>
+    {% assign categories_list = "" | split: "" %}
+    {% for page in site.pages %}
+      {% if page.categories and page.categories != "" %}
+        {% unless categories_list contains page.categories %}
+          {% assign categories_list = categories_list | push: page.categories %}
+        {% endunless %}
+      {% endif %}
+    {% endfor %}
+    {% assign categories_list = categories_list | sort %}
+    {% for category in categories_list %}
+    <li>
+      <a href="{{ '/categories' | relative_url }}#{{ category | slugify }}">
+        {{ category }}
+        ({% assign count = 0 %}{% for p in site.pages %}{% if p.categories == category %}{% assign count = count | plus: 1 %}{% endif %}{% endfor %}{{ count }})
+      </a>
+    </li>
+    {% endfor %}
+  </ul>
+
+  <h3>所有文章</h3>
+  <ul>
+    {% assign sorted_pages = site.pages | sort: "date" | reverse %}
+    {% for page in sorted_pages %}
+      {% if page.title and page.url != "/" and page.url != "/categories" and page.url != "/tags" %}
+      <li><a href="{{ page.url | relative_url }}">{{ page.title }}</a></li>
+      {% endif %}
+    {% endfor %}
+  </ul>
 </nav>
