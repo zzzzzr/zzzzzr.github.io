@@ -1,3 +1,11 @@
+---
+title: MapStruct学习文档
+layout: default
+categories: Java学习
+tags: [MapStruct, 框架, 实体映射]
+date: 2022-06-01
+---
+
 # mapstruct入门教程
 
 > 这篇文章用于记录学习了解`mapstruct` 框架时的内容。
