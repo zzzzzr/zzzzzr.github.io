@@ -28,6 +28,14 @@ Syntax highlighted code block
 
 For more details see [GitHub Flavored Markdown](https://guides.github.com/features/mastering-markdown/).
 
+
+<nav>
+  {% for page in site.pages %}
+    <a href="{{ page.url }}">{{ page.title }}</a>
+  {% endfor %}
+</nav>
+
+
 ### Jekyll Themes
 
 Your Pages site will use the layout and styles from the Jekyll theme you have selected in your [repository settings](https://github.com/zzzzzr/zzzzzr.github.io/settings). The name of this theme is saved in the Jekyll `_config.yml` configuration file.
