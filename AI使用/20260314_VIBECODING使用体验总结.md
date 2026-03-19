@@ -222,7 +222,7 @@ Task 3.2: 实现用户 API endpoint
 
 ## 规格隧道视野
 
-相关讨论：   /Users/yqg/Documents/需求相关/20260206-SpecKit上下文忽略问题分析与解法.md
+相关讨论：   [SpecKit上下文忽略问题分析与解法.md] TODO
 
 ### 你可能会遇到的场景
 
